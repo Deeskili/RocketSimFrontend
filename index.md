@@ -1,8 +1,8 @@
 ---
-title: Alien World
+title: Recipe Book Manager
 layout: base
 ---
 
-Future home of Alien World
+Recipe Book Manager
 
-![alien planet]({{site.baseurl}}/images/alien_planet.jpg)
+[Recipe Book Manager](https://www.figma.com/file/3nvtE8kJLdDL6zx4ho8bp8/Recipe-Book-Manager?type=design&node-id=23-30&mode=design&t=EN6SXZQh9AvSDCa1-0)
