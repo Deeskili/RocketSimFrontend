@@ -3,8 +3,6 @@ title: Recipe Book Manager
 layout: base
 ---
 
-Recipe Book Manager
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
