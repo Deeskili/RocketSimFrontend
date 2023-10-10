@@ -1,8 +1,8 @@
-title: Alien World
+title: Recipe Book Manager
 description: "August 2023 to June 2024"
 owner_name: John Mortensen
 github_username: jm1021
-github_repo: "alienWorld"
+github_repo: "recipeBookManager"
 baseurl: "/RocketSimFrontend"
 remote_theme: jekyll/minima
 minima:
