@@ -11,7 +11,7 @@ categories: ['C4.1']
 
 <html>
 <head>
-    <title>Recipe Search</title>
+    <title>Recipe Details</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,64 +21,57 @@ categories: ['C4.1']
             text-align: center;
             margin-top: 50px;
         }
-        .search-box {
-            display: flex;
-            justify-content: center;
-        }
-        .search-input {
-            padding: 10px;
+        .recipe-details {
             border: 2px solid #ccc;
             border-radius: 5px;
-            width: 250px;
-            font-size: 16px;
-            margin-right: 10px;
+            padding: 10px;
+            margin: 10px;
         }
-        .search-button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 16px;
+        .recipe-details img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
         }
-        .search-button:hover {
-            background-color: #45a049;
+        .recipe-details h2 {
+            color: #FF5733; /* Change the color as desired */
         }
-        #searchResults {
-            margin-top: 20px;
-            text-align: left;
+        .recipe-details h3 {
+            color: #666; /* Subheading color */
+        }
+        .recipe-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Recipe Search</h1>
+        <h1>Recipe Details</h1>
         <div class="search-box">
-            <input type="text" id="searchInput" class="search-input" placeholder="Enter a keyword">
+            <input type="text" id="recipeIdInput" class="search-input" placeholder="Enter Recipe ID">
             <button id="searchButton" class="search-button">Search</button>
         </div>
-        <div id="searchResults"></div>
+        <div id="recipeDetails"></div>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const searchInput = document.getElementById("searchInput");
+            const recipeIdInput = document.getElementById("recipeIdInput");
             const searchButton = document.getElementById("searchButton");
-            const searchResults = document.getElementById("searchResults");
-
-            // API URL
-            const apiUrl = "https://backendrocketmain.stu.nighthawkcodingsociety.com/api/recipe/recipes";
+            const recipeDetails = document.getElementById("recipeDetails");
 
             // Event listener for the search button
             searchButton.addEventListener("click", () => {
-                const searchTerm = searchInput.value;
-                if (searchTerm) {
-                    // Clear previous search results
-                    searchResults.innerHTML = "Searching...";
+                const recipeId = recipeIdInput.value;
+                if (recipeId) {
+                    // Clear previous recipe details
+                    recipeDetails.innerHTML = "Loading...";
+
+                    // API URL for a specific recipe
+                    const apiUrl = `https://backendrocketmain.stu.nighthawkcodingsociety.com/api/recipe/recipedetails?id=${recipeId}`;
 
                     // Fetch data from the API based on the user's input
-                    fetch(`${apiUrl}?q=${searchTerm}`)
+                    fetch(apiUrl)
                         .then(response => {
                             if (!response.ok) {
                                 throw new Error(`Network response was not ok: ${response.status}`);
@@ -86,8 +79,8 @@ categories: ['C4.1']
                             return response.json();
                         })
                         .then(data => {
-                            // Display search results
-                            displaySearchResults(data);
+                            // Display recipe details
+                            displayRecipeDetails(data, recipeId);
                         })
                         .catch(error => {
                             console.error("There was a problem fetching the data:", error);
@@ -95,46 +88,55 @@ categories: ['C4.1']
                 }
             });
 
-            // Function to display search results
-            function displaySearchResults(data) {
-                searchResults.innerHTML = ""; // Clear previous results
+            // Function to display recipe details
+            function displayRecipeDetails(recipe, recipeId) {
+                // Clear previous recipe details
+                recipeDetails.innerHTML = "";
 
-                if (data.length === 0) {
-                    searchResults.innerHTML = "No results found.";
-                } else {
-                    data.forEach(recipe => {
-                        // Create an HTML element for each recipe
-                        const recipeElement = document.createElement("div");
-                        recipeElement.classList.add("recipe");
+                // Create an HTML element for the recipe
+                const recipeElement = document.createElement("div");
+                recipeElement.classList.add("recipe-details");
 
-                        // Display picture
-                        const imgElement = document.createElement("img");
-                        imgElement.src = recipe.image;
-                        imgElement.alt = recipe.name;
-                        recipeElement.appendChild(imgElement);
+                // Display subheading with ID number
+                const subheadingElement = document.createElement("h3");
+                subheadingElement.textContent = `Recipe ID: ${recipeId}`;
+                recipeElement.appendChild(subheadingElement);
 
-                        // Display name
-                        const nameElement = document.createElement("h2");
-                        nameElement.textContent = recipe.name;
-                        recipeElement.appendChild(nameElement);
+                // Display picture
+                const imgElement = document.createElement("img");
+                imgElement.src = recipe.image;
+                imgElement.alt = recipe.name;
+                recipeElement.appendChild(imgElement);
 
-                        // Display ingredients
-                        const ingredientsElement = document.createElement("p");
-                        ingredientsElement.textContent = `Ingredients: ${recipe.ingredients}`;
-                        recipeElement.appendChild(ingredientsElement);
+                // Display name
+                const nameElement = document.createElement("h2");
+                nameElement.textContent = recipe.name;
+                recipeElement.appendChild(nameElement);
 
-                        // Display instructions
-                        const instructionsElement = document.createElement("p");
-                        instructionsElement.textContent = `Instructions: ${recipe.instructions}`;
-                        recipeElement.appendChild(instructionsElement);
+                // Display ingredients as an unordered list
+                const ingredientsElement = document.createElement("ul");
+                const ingredients = recipe.ingredients.split("\n");
+                ingredients.forEach(ingredient => {
+                    const li = document.createElement("li");
+                    li.textContent = ingredient;
+                    ingredientsElement.appendChild(li);
+                });
+                recipeElement.appendChild(ingredientsElement);
 
-                        // Add the recipe to the search results container
-                        searchResults.appendChild(recipeElement);
-                    });
-                }
+                // Display instructions as an unordered list
+                const instructionsElement = document.createElement("ul");
+                const instructions = recipe.instructions.split("\n");
+                instructions.forEach(instruction => {
+                    const li = document.createElement("li");
+                    li.textContent = instruction;
+                    instructionsElement.appendChild(li);
+                });
+                recipeElement.appendChild(instructionsElement);
+
+                // Add the recipe details to the page
+                recipeDetails.appendChild(recipeElement);
             }
         });
     </script>
 </body>
 </html>
-](<2023-10-18-Search-BoxCode copy.md>)
