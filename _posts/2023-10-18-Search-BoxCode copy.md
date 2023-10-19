@@ -9,18 +9,22 @@ categories: ['C4.1']
 ---
 
 
+<!DOCTYPE html>
 <html>
 <head>
     <title>Recipe Search</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
         }
-        h1 {
+        .container {
             text-align: center;
+            margin-top: 50px;
         }
-        .search-container {
-            text-align: center;
+        .search-box {
+            display: flex;
+            justify-content: center;
         }
         .search-input {
             padding: 10px;
@@ -28,6 +32,7 @@ categories: ['C4.1']
             border-radius: 5px;
             width: 250px;
             font-size: 16px;
+            margin-right: 10px;
         }
         .search-button {
             background-color: #4CAF50;
@@ -43,19 +48,19 @@ categories: ['C4.1']
         }
         #searchResults {
             margin-top: 20px;
-            text-align: center;
+            text-align: left;
         }
     </style>
 </head>
 <body>
-    <h1>Recipe Search</h1>
-
-    <div class="search-container">
-        <input type="text" id="searchInput" class="search-input" placeholder="Enter a keyword">
-        <button id="searchButton" class="search-button">Search</button>
+    <div class="container">
+        <h1>Recipe Search</h1>
+        <div class="search-box">
+            <input type="text" id="searchInput" class="search-input" placeholder="Enter a keyword">
+            <button id="searchButton" class="search-button">Search</button>
+        </div>
+        <div id="searchResults"></div>
     </div>
-
-    <div id="searchResults"></div>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -99,12 +104,33 @@ categories: ['C4.1']
                     searchResults.innerHTML = "No results found.";
                 } else {
                     data.forEach(recipe => {
-                        // Create HTML elements to display each result (e.g., recipe name)
-                        const resultElement = document.createElement("div");
-                        resultElement.textContent = recipe.name;
+                        // Create an HTML element for each recipe
+                        const recipeElement = document.createElement("div");
+                        recipeElement.classList.add("recipe");
 
-                        // Add the result to the search results container
-                        searchResults.appendChild(resultElement);
+                        // Display picture
+                        const imgElement = document.createElement("img");
+                        imgElement.src = recipe.image;
+                        imgElement.alt = recipe.name;
+                        recipeElement.appendChild(imgElement);
+
+                        // Display name
+                        const nameElement = document.createElement("h2");
+                        nameElement.textContent = recipe.name;
+                        recipeElement.appendChild(nameElement);
+
+                        // Display ingredients
+                        const ingredientsElement = document.createElement("p");
+                        ingredientsElement.textContent = `Ingredients: ${recipe.ingredients}`;
+                        recipeElement.appendChild(ingredientsElement);
+
+                        // Display instructions
+                        const instructionsElement = document.createElement("p");
+                        instructionsElement.textContent = `Instructions: ${recipe.instructions}`;
+                        recipeElement.appendChild(instructionsElement);
+
+                        // Add the recipe to the search results container
+                        searchResults.appendChild(recipeElement);
                     });
                 }
             }
