@@ -1,7 +1,7 @@
 ---
 comments: True
 layout: notebook
-title: Search Bar JS Code+
+title: Search Bar JS Code+ version 2
 description: 
 type: hacks
 courses: {'compsci': {'week': 1}}
@@ -48,23 +48,6 @@ categories: ['C4.1']
         #searchResults {
             margin-top: 20px;
             text-align: left;
-        }
-        .recipe {
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            margin: 10px;
-        }
-        .recipe img {
-            display: block;
-            margin: 0 auto;
-        }
-        .recipe h2 {
-            color: #FF5733; /* Change the color as desired */
-        }
-        .recipe ul {
-            list-style-type: disc;
-            padding-left: 20px;
         }
     </style>
 </head>
@@ -135,24 +118,14 @@ categories: ['C4.1']
                         nameElement.textContent = recipe.name;
                         recipeElement.appendChild(nameElement);
 
-                        // Display ingredients as an unordered list
-                        const ingredientsElement = document.createElement("ul");
-                        const ingredients = recipe.ingredients.split("\n");
-                        ingredients.forEach(ingredient => {
-                            const li = document.createElement("li");
-                            li.textContent = ingredient;
-                            ingredientsElement.appendChild(li);
-                        });
+                        // Display ingredients
+                        const ingredientsElement = document.createElement("p");
+                        ingredientsElement.textContent = `Ingredients: ${recipe.ingredients}`;
                         recipeElement.appendChild(ingredientsElement);
 
-                        // Display instructions as an unordered list
-                        const instructionsElement = document.createElement("ul");
-                        const instructions = recipe.instructions.split("\n");
-                        instructions.forEach(instruction => {
-                            const li = document.createElement("li");
-                            li.textContent = instruction;
-                            instructionsElement.appendChild(li);
-                        });
+                        // Display instructions
+                        const instructionsElement = document.createElement("p");
+                        instructionsElement.textContent = `Instructions: ${recipe.instructions}`;
                         recipeElement.appendChild(instructionsElement);
 
                         // Add the recipe to the search results container
@@ -164,3 +137,4 @@ categories: ['C4.1']
     </script>
 </body>
 </html>
+](<2023-10-18-Search-BoxCode copy.md>)
