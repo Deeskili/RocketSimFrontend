@@ -7,7 +7,6 @@ type: hacks
 courses: {'compsci': {'week': 1}}
 categories: ['C4.1']
 ---
-
 <html>
 <head>
     <title>View Recipes</title>
