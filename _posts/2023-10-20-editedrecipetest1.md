@@ -1,8 +1,11 @@
 ---
-toc: false
-comments: false
-layout: post
-title: First Iteration Edited Recipe
+comments: True
+layout: notebook
+title: Edited Recipe Storage Test 
+description: 
+type: hacks
+courses: {'compsci': {'week': 1}}
+categories: ['C4.1']
 ---
 
 <html>
