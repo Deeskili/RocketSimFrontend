@@ -75,7 +75,7 @@ categories: ['C4.1']
             // Function to create the recipe details page
             function createRecipeDetailsPage(recipe) {
                 // Redirect to the recipe details page when the button is clicked
-                window.location.href = `recipe-details.html?recipeId=${recipe.id}`;
+                window.location.href = `https://deeskili.github.io/RocketSimFrontend/c4.1/2023/10/21/recipedetails.html?recipeId=${recipe.id}`;
             }
 
             // Fetch data from the API for all recipes
