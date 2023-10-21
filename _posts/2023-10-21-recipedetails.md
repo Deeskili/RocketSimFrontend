@@ -20,7 +20,7 @@ categories: ['C4.1']
     <p id="recipe-ingredients"></p>
     <h2>Instructions</h2>
     <p id="recipe-instructions"></p>
-    <a href="index.html">Back to Recipe List</a>
+    <a href="">Back to Recipe List</a>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
