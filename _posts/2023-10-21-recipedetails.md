@@ -40,11 +40,11 @@ categories: ['C4.1']
                     // Display recipe details on the page
                     const titleElement = document.getElementById("recipe-title");
                     const instructionsElement = document.getElementById("recipe-instructions");
-                    const ingredientsElement = document.getElementById("recipe-ingredients");
+                    const ingredientsElement = document.getElementById("recipe-cleaned_ingredients");
 
                     titleElement.textContent = recipe.title;
                     instructionsElement.textContent = recipe.instructions;
-                    ingredientsElement.textContent = recipe.cleanedIngredients;
+                    ingredientsElement.textContent = recipe.cleaned_ingredients;
                 })
                 .catch(error => {
                     console.error("There was a problem fetching the recipe details:", error);
