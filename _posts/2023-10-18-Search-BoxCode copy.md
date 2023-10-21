@@ -1,7 +1,7 @@
 ---
 comments: True
 layout: notebook
-title: Search Bar JS Code+
+title: Search Bar JS Code+ Test Fetching Data
 description: 
 type: hacks
 courses: {'compsci': {'week': 1}}
