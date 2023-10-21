@@ -39,7 +39,7 @@ categories: ['C4.1']
             max-height: 200px;
             object-fit: cover;
         }
-        .recipe-name {
+        .recipe-title {
             font-weight: bold;
             margin-top: 10px;
         }
@@ -87,11 +87,11 @@ categories: ['C4.1']
                         imgElement.src = `_images/${recipe.image}`;
                         recipeCard.appendChild(imgElement);
 
-                        // Display recipe name
-                        const nameElement = document.createElement("div");
-                        nameElement.classList.add("recipe-name");
-                        nameElement.textContent = recipe.name;
-                        recipeCard.appendChild(nameElement);
+                        // Display recipe title (assuming "title" is the field name)
+                        const titleElement = document.createElement("div");
+                        titleElement.classList.add("recipe-title");
+                        titleElement.textContent = recipe.title;
+                        recipeCard.appendChild(titleElement);
 
                         // More info button
                         const moreInfoButton = document.createElement("button");
