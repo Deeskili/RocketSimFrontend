@@ -17,9 +17,9 @@ categories: ['C4.1']
 <body>
     <h1 id="recipe-title"></h1>
     <h2>Ingredients</h2>
-    <p id="recipe-ingredients"></p>
+    <ul id="recipe-ingredients"></ul>
     <h2>Instructions</h2>
-    <ul id="recipe-instructions"></ul>
+    <ol id="recipe-instructions"></ol>
     
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -31,7 +31,7 @@ categories: ['C4.1']
             fetch(`https://backendrocketmain.stu.nighthawkcodingsociety.com/api/recipe/recipedetails?id=${recipeId}`)
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error(`Network response was not ok: ${response.status}`);
+                        throw an Error(`Network response was not ok: ${response.status}`);
                     }
                     return response.json();
                 })
@@ -42,9 +42,18 @@ categories: ['C4.1']
                     const instructionsElement = document.getElementById("recipe-instructions");
 
                     titleElement.textContent = recipe.title;
-                    ingredientsElement.textContent = recipe.cleaned_ingredients;
-                    
-                    // Split instructions by periods and create a list
+
+                    // Split ingredients by comma and create a bulleted list
+                    const ingredients = recipe.cleaned_ingredients.split(',');
+                    ingredients.forEach(ingredient => {
+                        if (ingredient.trim() !== '') {
+                            const listItem = document.createElement("li");
+                            listItem.textContent = ingredient.trim();
+                            ingredientsElement.appendChild(listItem);
+                        }
+                    });
+
+                    // Split instructions by periods and create a numbered list
                     const instructions = recipe.instructions.split('.');
                     instructions.forEach(instruction => {
                         if (instruction.trim() !== '') {
