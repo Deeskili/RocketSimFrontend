@@ -1,7 +1,7 @@
 ---
 comments: True
 layout: notebook
-title: Recipe List
+title: Recipe Search
 description: 
 type: hacks
 courses: {'compsci': {'week': 1}}

@@ -3,6 +3,7 @@ title: Recipe Book Manager
 layout: base
 ---
 
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,11 +36,11 @@ layout: base
             min-height: 400px;
         }
         .bgimg-4 {
-            background-image: url("https://plus.unsplash.com/premium_photo-1695822018668-72355fc4ee7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3024&q=80");
+            background-image: url("https://plus.unsplash.com/premium_photo-1695822018668-72355fc4ee7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1pYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto.format&fit=crop&w=3024&q=80");
             min-height: 400px;
         }
         .bgimg-5 {
-            background-image: url("https://images.unsplash.com/photo-1625604087024-7fb428fc4626?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80");
+            background-image: url("https://images.unsplash.com/photo-1625604087024-7fb428fc4626?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1pYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80");
             min-height: 400px;
         }
         /* Caption style */
