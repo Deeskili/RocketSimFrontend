@@ -20,7 +20,7 @@ categories: ['C4.1']
     <p id="recipe-ingredients"></p>
     <h2>Instructions</h2>
     <p id="recipe-instructions"></p>
-    <a href="https://deeskili.github.io/RocketSimFrontend/c4.1/2023/10/21/recipelist.html">Back to Recipe List</a>
+    <a href="index.html">Back to Recipe List</a>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -28,8 +28,8 @@ categories: ['C4.1']
             const urlParams = new URLSearchParams(window.location.search);
             const recipeId = urlParams.get("recipeId");
 
-            // Fetch the recipe details based on the recipeId
-            fetch(`https://backendrocketmain.stu.nighthawkcodingsociety.com/api/recipe/recipes/${recipeId}`)
+            // Fetch the recipe details based on the recipeId from the API
+            fetch(`https://backendrocketmain.stu.nighthawkcodingsociety.com/api/recipe/recipedetails?id=${recipeId}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error(`Network response was not ok: ${response.status}`);

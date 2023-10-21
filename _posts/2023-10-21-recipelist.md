@@ -75,10 +75,10 @@ categories: ['C4.1']
             // Function to create the recipe details page
             function createRecipeDetailsPage(recipe) {
                 // Redirect to the recipe details page when the button is clicked
-                window.location.href = `https://deeskili.github.io/RocketSimFrontend/c4.1/2023/10/21/recipedetails.html?recipeId=${recipe.id}`;
+                window.location.href = `recipe-details.html?recipeId=${recipe.id}`;
             }
 
-            // Fetch data from the API
+            // Fetch data from the API for all recipes
             fetch(apiUrl)
                 .then(response => {
                     if (!response.ok) {
@@ -87,17 +87,17 @@ categories: ['C4.1']
                     return response.json();
                 })
                 .then(data => {
-                    // Generate recipe cards
+                    // Generate recipe cards for each recipe
                     data.forEach(recipe => {
                         const recipeCard = document.createElement("div");
                         recipeCard.classList.add("recipe-card");
 
-                        // Display image based on recipe title
+                        // Display image (you may need to adjust this)
                         const imgElement = document.createElement("img");
                         imgElement.src = findMatchingImageFilename(recipe.title);
                         recipeCard.appendChild(imgElement);
 
-                        // Display recipe title (assuming the API provides the title)
+                        // Display recipe title
                         const titleElement = document.createElement("div");
                         titleElement.classList.add("recipe-title");
                         titleElement.textContent = recipe.title;
