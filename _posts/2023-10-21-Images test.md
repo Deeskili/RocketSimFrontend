@@ -35,14 +35,8 @@ categories: ['C4.1']
             margin: 10px;
             background-color: white;
         }
-        .recipe-card img {
-            width: 100%;
-            max-height: 200px;
-            object-fit: cover;
-        }
-        .recipe-title {
+        .recipe-card h2 {
             font-weight: bold;
-            margin-top: 10px;
             color: black; /* Text color */
             font-size: 18px; /* Font size */
             font-family: Arial, sans-serif; /* Font family */
@@ -68,76 +62,44 @@ categories: ['C4.1']
     </div>
 
     <script>
-        // Mapping object for recipe titles to image filenames
-        const titleToImageMapping = {
-            "Miso-Butter Roast Chicken With Acorn Squash Panzanella": "miso-butter-roast-chicken-acorn-squash-panzanella.jpg",
-            // Add more mappings as needed
-        };
+        const recipeList = document.getElementById("recipeList");
+        const apiUrl = "https://backendrocketmain.stu.nighthawkcodingsociety.com/api/recipe/recipes";
 
-        // Function to find a matching image filename based on the recipe title
-        function findMatchingImageFilename(recipeTitle) {
-            const title = recipeTitle.toLowerCase(); // Convert the title to lowercase for case-insensitive matching
+        // Function to create recipe cards
+        function createRecipeCard(recipe) {
+            const recipeCard = document.createElement("div");
+            recipeCard.classList.add("recipe-card");
 
-            // Attempt to find a direct match
-            if (titleToImageMapping.hasOwnProperty(title)) {
-                return titleToImageMapping[title];
-            }
+            // Recipe title
+            const titleElement = document.createElement("h2");
+            titleElement.textContent = recipe.title;
 
-            // If a direct match is not found, attempt to find a partial match
-            for (const key in titleToImageMapping) {
-                if (title.includes(key.toLowerCase())) {
-                    return titleToImageMapping[key];
-                }
-            }
+            // More Info button
+            const moreInfoButton = document.createElement("button");
+            moreInfoButton.classList.add("more-info-button");
+            moreInfoButton.textContent = "More Info";
+            moreInfoButton.addEventListener("click", () => showRecipeDetails(recipe));
 
-            // If no match is found, return a default image filename
-            return "default.jpg";
+            // Append elements to the recipe card
+            recipeCard.appendChild(titleElement);
+            recipeCard.appendChild(moreInfoButton);
+
+            recipeList.appendChild(recipeCard);
         }
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const recipeList = document.getElementById("recipeList");
-            const apiUrl = "https://backendrocketmain.stu.nighthawkcodingsociety.com/api/recipe/recipes";
+        // Function to show recipe details
+        function showRecipeDetails(recipe) {
+            const detailsUrl = `recipe_details.html?title=${encodeURIComponent(recipe.title)}&ingredients=${encodeURIComponent(recipe.ingredients)}&steps=${encodeURIComponent(recipe.steps)}`;
+            window.location.href = detailsUrl;
+        }
 
-            // Fetch data from the API
-            fetch(apiUrl)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Network response was not ok: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Generate recipe cards
-                    data.forEach(recipe => {
-                        const recipeCard = document.createElement("div");
-                        recipeCard.classList.add("recipe-card");
-
-                        // Display image based on recipe title
-                        const imgElement = document.createElement("img");
-                        const imageFilename = findMatchingImageFilename(recipe.title);
-                        imgElement.src = `images/Food Images/Food Images/${imageFilename}`;
-                        recipeCard.appendChild(imgElement);
-
-                        // Display recipe title (assuming the API provides the title)
-                        const titleElement = document.createElement("div");
-                        titleElement.classList.add("recipe-title");
-                        titleElement.textContent = recipe.title;
-                        recipeCard.appendChild(titleElement);
-
-                        // More info button
-                        const moreInfoButton = document.createElement("button");
-                        moreInfoButton.classList.add("more-info-button");
-                        moreInfoButton.textContent = "More Info";
-                        recipeCard.appendChild(moreInfoButton);
-
-                        // Append the recipe card to the container
-                        recipeList.appendChild(recipeCard);
-                    });
-                })
-                .catch(error => {
-                    console.error("There was a problem fetching the data:", error);
-                });
-        });
+        // Fetch data from the API
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(recipe => createRecipeCard(recipe));
+            })
+            .catch(error => console.error("Error fetching data:", error));
     </script>
 </body>
 </html>
