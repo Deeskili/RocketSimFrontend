@@ -19,9 +19,8 @@ categories: ['C4.1']
     <h2>Ingredients</h2>
     <p id="recipe-ingredients"></p>
     <h2>Instructions</h2>
-    <p id="recipe-instructions"></p>
+    <ul id="recipe-instructions"></ul>
     
-
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             // Get the recipeId from the URL
@@ -39,12 +38,21 @@ categories: ['C4.1']
                 .then(recipe => {
                     // Display recipe details on the page
                     const titleElement = document.getElementById("recipe-title");
+                    const ingredientsElement = document.getElementById("recipe-ingredients");
                     const instructionsElement = document.getElementById("recipe-instructions");
-                    const ingredientsElement = document.getElementById("recipe-cleaned_ingredients");
 
                     titleElement.textContent = recipe.title;
-                    instructionsElement.textContent = recipe.instructions;
                     ingredientsElement.textContent = recipe.cleaned_ingredients;
+                    
+                    // Split instructions by periods and create a list
+                    const instructions = recipe.instructions.split('.');
+                    instructions.forEach(instruction => {
+                        if (instruction.trim() !== '') {
+                            const listItem = document.createElement("li");
+                            listItem.textContent = instruction.trim() + ".";
+                            instructionsElement.appendChild(listItem);
+                        }
+                    });
                 })
                 .catch(error => {
                     console.error("There was a problem fetching the recipe details:", error);
