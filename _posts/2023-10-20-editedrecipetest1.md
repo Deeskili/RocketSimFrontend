@@ -8,7 +8,6 @@ courses: {'compsci': {'week': 1}}
 categories: ['C4.1']
 ---
 
-
 <html>
 <head>
     <title>Recipe Input</title>
@@ -32,7 +31,7 @@ categories: ['C4.1']
 
             if (recipeName && recipeText) {
                 // Send the data to the backend for storage
-                fetch('/api/editedrecipe/addrecipe', {  // Specify the correct Flask API endpoint
+                fetch('/api/editedrecipe/addrecipe', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -40,10 +39,10 @@ categories: ['C4.1']
                     body: JSON.stringify({
                         title: recipeName,
                         ingredients: recipeText,
-                        instructions: '',  // You can add more fields as needed
-                        image_name: '',    // You can add more fields as needed
-                        cleaned_ingredients: '',  // You can add more fields as needed
-                        edited_by: 'User'  // Assuming the user's name or identifier
+                        instructions: '',
+                        image_name: '',
+                        cleaned_ingredients: '',
+                        edited_by: 'User'
                     })
                 })
                 .then(response => response.json())

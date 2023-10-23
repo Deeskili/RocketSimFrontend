@@ -7,6 +7,7 @@ type: hacks
 courses: {'compsci': {'week': 1}}
 categories: ['C4.1']
 ---
+
 <html>
 <head>
     <title>View Recipes</title>
@@ -23,7 +24,7 @@ categories: ['C4.1']
     <script>
         function fetchRecipes() {
             // Send a request to the backend to fetch recipes
-            fetch('/api/editedrecipe/recipes')  // Specify the correct Flask API endpoint
+            fetch('/api/editedrecipe/recipes')
                 .then(response => response.json())
                 .then(data => {
                     const recipeContainer = document.getElementById('recipeContainer');
