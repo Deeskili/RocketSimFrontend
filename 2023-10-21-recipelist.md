@@ -77,7 +77,14 @@ categories: ['C4.1']
                 // Redirect to the recipe details page when the button is clicked
                 window.location.href = `https://deeskili.github.io/RocketSimFrontend/c4.1/2023/10/21/recipedetails.html?recipeId=${recipe.id}`;
             }
-
+            // Function to find a matching image filename based on the recipe title
+            function findMatchingImageFilename(recipeTitle) {
+                const title = recipeTitle.toLowerCase();
+                if (titleToImageMapping.hasOwnProperty(title)) {
+                    return `images/Food%20Images/Food%20Images/${titleToImageMapping[title]}`;
+                }
+                return "default.jpg";
+            }
             // Fetch data from the API for all recipes
             fetch(apiUrl)
                 .then(response => {
@@ -93,9 +100,18 @@ categories: ['C4.1']
                         recipeCard.classList.add("recipe-card");
 
                         // Display image (you may need to adjust this)
-                        const imgElement = document.createElement("img");
-                        imgElement.src = findMatchingImageFilename(recipe.title);
-                        recipeCard.appendChild(imgElement);
+                        function findMatchingImageFilename(title) {
+                            // Your implementation to find the image filename based on the recipe title
+                            // Replace this with your actual logic
+                            return 'path/to/your/image/' + title + '.jpg';
+                         }
+
+                        // Function to create and append the image to the recipe card
+                        function displayRecipeImage(recipeCard, recipe) {
+                            const imgElement = document.createElement("img");
+                            imgElement.src = findMatchingImageFilename(recipe.title);
+                            recipeCard.appendChild(imgElement);
+                        }
 
                         // Display recipe title
                         const titleElement = document.createElement("div");
@@ -129,15 +145,6 @@ categories: ['C4.1']
             "Miso-Butter Roast Chicken With Acorn Squash Panzanella": "miso-butter-roast-chicken-acorn-squash-panzanella.jpg",
             // Add more mappings as needed
         };
-
-        // Function to find a matching image filename based on the recipe title
-        function findMatchingImageFilename(recipeTitle) {
-            const title = recipeTitle.toLowerCase();
-            if (titleToImageMapping.hasOwnProperty(title)) {
-                return `images/Food%20Images/Food%20Images/${titleToImageMapping[title]}`;
-            }
-            return "default.jpg";
-        }
     </script>
 </body>
 </html>
