@@ -8,8 +8,6 @@ courses: {'compsci': {'week': 1}}
 categories: ['C4.1']
 ---
 
-
-<!DOCTYPE html>
 <html>
 <head>
     <title>Recipe List</title>
