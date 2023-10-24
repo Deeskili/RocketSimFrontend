@@ -95,88 +95,110 @@ categories: ['C4.1']
         <!-- Content will be dynamically generated here -->
     </div>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const recipeList = document.getElementById("recipeList");
-        const apiUrl = "https://backendrocketmain.stu.nighthawkcodingsociety.com/api/recipe/recipes";
+<body>
+    <div id="recipeList" class="recipe-container">
+        <!-- Content will be dynamically generated here -->
+    </div>
 
-        // Add event listener for the search button
-        const searchButton = document.getElementById("searchButton");
-        searchButton.addEventListener("click", performSearch);
+<script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const recipeList = document.getElementById("recipeList");
+            const apiUrl = "https://backendrocketmain.stu.nighthawkcodingsociety.com/api/recipe/recipes";
+            const searchInput = document.getElementById("searchInput");
 
-        // Function to create the recipe details page
-        function createRecipeDetailsPage(recipe) {
-            // Redirect to the recipe details page when the button is clicked
-            window.location.href = `https://deeskili.github.io/RocketSimFrontend/c4.1/2023/10/21/recipedetails.html?recipeId=${recipe.id}`;
-        }
+            // Function to create the recipe details page
+            function createRecipeDetailsPage(recipe) {
+                // Redirect to the recipe details page when the button is clicked
+                window.location.href = `https://deeskili.github.io/RocketSimFrontend/c4.1/2023/10/21/recipedetails.html?recipeId=${recipe.id}`;
+            }
 
-        // Fetch data from the API for all recipes
-        fetch(apiUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Network response was not ok: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Store the data in a variable for filtering
-                let recipesData = data;
-
-                // Generate recipe cards for each recipe
-                data.forEach(recipe => {
+            // Function to generate recipe cards
+            function generateRecipeCards(recipes) {
+                recipeList.innerHTML = ''; // Clear the existing recipe cards
+                recipes.forEach(recipe => {
                     const recipeCard = createRecipeCard(recipe);
                     recipeList.appendChild(recipeCard);
                 });
+            }
 
-                // Function to create a recipe card
-                function createRecipeCard(recipe) {
-                    const recipeCard = document.createElement("div");
-                    recipeCard.classList.add("recipe-card");
+            // Function to create a recipe card
+            function createRecipeCard(recipe) {
+                const recipeCard = document.createElement("div");
+                recipeCard.classList.add("recipe-card");
 
-                    // Display image (you may need to adjust this)
-                    const imgElement = document.createElement("img");
-                    imgElement.src = findMatchingImageFilename(recipe.title);
-                    recipeCard.appendChild(imgElement);
+                // Display image (you may need to adjust this)
+                const imgElement = document.createElement("img");
+                imgElement.src = findMatchingImageFilename(recipe.title);
+                recipeCard.appendChild(imgElement);
 
-                    // Display recipe title
-                    const titleElement = document.createElement("div");
-                    titleElement.classList.add("recipe-title");
-                    titleElement.textContent = recipe.title;
-                    recipeCard.appendChild(titleElement);
+                // Display recipe title
+                const titleElement = document.createElement("div");
+                titleElement.classList.add("recipe-title");
+                titleElement.textContent = recipe.title;
+                recipeCard.appendChild(titleElement);
 
-                    // More info button
-                    const moreInfoButton = document.createElement("button");
-                    moreInfoButton.classList.add("more-info-button");
-                    moreInfoButton.textContent = "More Info";
+                // More info button
+                const moreInfoButton = document.createElement("button");
+                moreInfoButton.classList.add("more-info-button");
+                moreInfoButton.textContent = "More Info";
 
-                    // Add an event listener to the "More Info" button
-                    moreInfoButton.addEventListener("click", () => {
-                        createRecipeDetailsPage(recipe);
-                    });
+                // Add an event listener to the "More Info" button
+                moreInfoButton.addEventListener("click", () => {
+                    createRecipeDetailsPage(recipe);
+                });
 
-                    recipeCard.appendChild(moreInfoButton);
-                    return recipeCard;
+                recipeCard.appendChild(moreInfoButton);
+                return recipeCard;
+            }
+
+            // Function to filter recipes based on search input
+            function performSearch() {
+                const searchTerm = searchInput.value.trim().toLowerCase();
+                if (searchTerm === "") {
+                    generateRecipeCards(data); // Display all recipes if the search input is empty
+                } else {
+                    const filteredRecipes = data.filter(recipe => recipe.title.toLowerCase().includes(searchTerm));
+                    generateRecipeCards(filteredRecipes);
                 }
+            }
 
-                // Function to filter recipes based on search input
-                function performSearch() {
-                    const searchInput = document.getElementById("searchInput").value.toLowerCase();
-                    const filteredRecipes = recipesData.filter(recipe => recipe.title.toLowerCase().includes(searchInput));
+            // Fetch data from the API for all recipes
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw an Error(`Network response was not ok: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Store the data for filtering
+                    generateRecipeCards(data);
 
-                    // Clear the recipe list
-                    recipeList.innerHTML = "";
+                    // Add event listener for the search input
+                    searchInput.addEventListener("input", performSearch);
+                })
+                .catch(error => {
+                    console.error("There was a problem fetching the data:", error);
+                });
+        });
 
-                    // Generate recipe cards for filtered recipes
-                    filteredRecipes.forEach(recipe => {
-                        const recipeCard = createRecipeCard(recipe);
-                        recipeList.appendChild(recipeCard);
-                    });
-                }
-            })
-            .catch(error => {
-                console.error("There was a problem fetching the data:", error);
-            });
-    });
-</script>
-</body>
+        // Mapping object for recipe titles to image filenames
+        const titleToImageMapping = {
+            "Miso-Butter Roast Chicken With Acorn Squash Panzanella": "miso-butter-roast-chicken-acorn-squash-panzanella.jpg",
+            // Add more mappings as needed
+        };
+
+        // Function to find a matching image filename based on the recipe title
+        function findMatchingImageFilename(recipeTitle) {
+            const title = recipeTitle.toLowerCase();
+            if (titleToImageMapping.hasOwnProperty(title)) {
+                return `images/Food%20Images/Food%20Images/${titleToImageMapping[title]}`;
+            }
+            return "default.jpg";
+        }
+    </script>
+  </body>
 </html>
+
+
+    
