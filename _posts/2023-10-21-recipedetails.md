@@ -9,7 +9,6 @@ categories: ['C4.1']
 ---
 
 
-<!DOCTYPE html>
 <html>
 <head>
     <title>Recipe Details</title>

@@ -11,10 +11,6 @@ categories: ['C4.1']
 <html>
 <head>
     <title>Recipe List</title>
-    <div class="search-container">
-    <input type="text" id="searchInput" placeholder="Search for recipes here">
-    <button id="searchButton">Search</button>
-</div>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,11 +32,6 @@ categories: ['C4.1']
             padding: 10px;
             margin: 10px;
             background-color: white;
-        }
-        .recipe-card img {
-            width: 100%;
-            max-height: 200px;
-            object-fit: cover;
         }
         .recipe-title {
             font-weight: bold;
@@ -70,7 +61,7 @@ categories: ['C4.1']
         }
         #searchInput {
             padding: 10px;
-            width: 300px; /* Adjust the width as needed */
+            width: 300px;
             border: 2px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
@@ -91,102 +82,95 @@ categories: ['C4.1']
     </style>
 </head>
 <body>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search for recipes...">
+        <button id="searchButton">Search</button>
+    </div>
+
     <div id="recipeList" class="recipe-container">
         <!-- Content will be dynamically generated here -->
     </div>
 
-<body>
-    <div id="recipeList" class="recipe-container">
-        <!-- Content will be dynamically generated here -->
-    </div>
-
-<body>
-    <div id="recipeList" class="recipe-container">
-        <!-- Content will be dynamically generated here -->
-    </div>
-    
-<script>
+    <script>
         document.addEventListener("DOMContentLoaded", () => {
             const recipeList = document.getElementById("recipeList");
-            const apiUrl = "https://backendrocketmain.stu.nighthawkcodingsociety.com/api/recipe/recipes";
+            const searchInput = document.getElementById("searchInput");
 
             // Function to create the recipe details page
             function createRecipeDetailsPage(recipe) {
                 // Redirect to the recipe details page when the button is clicked
                 window.location.href = `https://deeskili.github.io/RocketSimFrontend/c4.1/2023/10/21/recipedetails.html?recipeId=${recipe.id}`;
             }
-            // Function to find a matching image filename based on the recipe title
-            function findMatchingImageFilename(recipeTitle) {
-                const title = recipeTitle.toLowerCase();
-                if (titleToImageMapping.hasOwnProperty(title)) {
-                    return `images/Food%20Images/Food%20Images/${titleToImageMapping[title]}`;
-                }
-                return "default.jpg";
-            }
-            // Fetch data from the API for all recipes
-            fetch(apiUrl)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Network response was not ok: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Generate recipe cards for each recipe
-                    data.forEach(recipe => {
-                        const recipeCard = document.createElement("div");
-                        recipeCard.classList.add("recipe-card");
 
-                        // Display image (you may need to adjust this)
-                        function findMatchingImageFilename(title) {
-                            // Your implementation to find the image filename based on the recipe title
-                            // Replace this with your actual logic
-                            return 'path/to/your/image/' + title + '.jpg';
-                         }
+            // Function to fetch and display the recipes from the API
+            function fetchAndDisplayRecipes() {
+                // Replace this URL with your API endpoint
+                const apiUrl = "https://backendrocketmain.stu.nighthawkcodingsociety.com/api/recipe/recipes";
 
-                        // Function to create and append the image to the recipe card
-                        function displayRecipeImage(recipeCard, recipe) {
-                            const imgElement = document.createElement("img");
-                            imgElement.src = findMatchingImageFilename(recipe.title);
-                            recipeCard.appendChild(imgElement);
+                fetch(apiUrl)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Network response was not ok: ${response.status}`);
                         }
-
-                        // Display recipe title
-                        const titleElement = document.createElement("div");
-                        titleElement.classList.add("recipe-title");
-                        titleElement.textContent = recipe.title;
-                        recipeCard.appendChild(titleElement);
-
-                        // More info button
-                        const moreInfoButton = document.createElement("button");
-                        moreInfoButton.classList.add("more-info-button");
-                        moreInfoButton.textContent = "More Info";
-
-                        // Add an event listener to the "More Info" button
-                        moreInfoButton.addEventListener("click", () => {
-                            createRecipeDetailsPage(recipe);
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Generate recipe cards for each recipe
+                        data.forEach(recipe => {
+                            const recipeCard = createRecipeCard(recipe);
+                            recipeList.appendChild(recipeCard);
                         });
-
-                        recipeCard.appendChild(moreInfoButton);
-
-                        // Append the recipe card to the container
-                        recipeList.appendChild(recipeCard);
+                    })
+                    .catch(error => {
+                        console.error("There was a problem fetching the data:", error);
                     });
-                })
-                .catch(error => {
-                    console.error("There was a problem fetching the data:", error);
-                });
-        });
+            }
 
-        // Mapping object for recipe titles to image filenames
-        const titleToImageMapping = {
-            "Miso-Butter Roast Chicken With Acorn Squash Panzanella": "miso-butter-roast-chicken-acorn-squash-panzanella.jpg",
-            // Add more mappings as needed
-        };
+            // Function to create a recipe card
+            function createRecipeCard(recipe) {
+                const recipeCard = document.createElement("div");
+                recipeCard.classList.add("recipe-card");
+
+                // Display recipe title
+                const titleElement = document.createElement("div");
+                titleElement.classList.add("recipe-title");
+                titleElement.textContent = recipe.title;
+                recipeCard.appendChild(titleElement);
+
+                // More info button
+                const moreInfoButton = document.createElement("button");
+                moreInfoButton.classList.add("more-info-button");
+                moreInfoButton.textContent = "More Info";
+                moreInfoButton.addEventListener("click", () => {
+                    createRecipeDetailsPage(recipe);
+                });
+                recipeCard.appendChild(moreInfoButton);
+                return recipeCard;
+            }
+
+            // Function to filter recipes based on search input
+            function performSearch() {
+                const searchTerm = searchInput.value.trim().toLowerCase();
+                const recipeCards = recipeList.getElementsByClassName("recipe-card");
+
+                Array.from(recipeCards).forEach(recipeCard => {
+                    const titleElement = recipeCard.querySelector(".recipe-title");
+                    const title = titleElement.textContent.toLowerCase();
+
+                    if (title.includes(searchTerm)) {
+                        recipeCard.style.display = "block"; // Show the recipe card
+                    } else {
+                        recipeCard.style.display = "none"; // Hide the recipe card
+                    }
+                });
+            }
+
+            // Add event listener for the search input
+            searchInput.addEventListener("input", performSearch);
+
+            // Fetch and display recipes when the page loads
+            fetchAndDisplayRecipes();
+        });
     </script>
 </body>
 </html>
-
-
-
-    
