@@ -96,83 +96,87 @@ categories: ['C4.1']
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const recipeList = document.getElementById("recipeList");
-            const apiUrl = "https://backendrocketmain.stu.nighthawkcodingsociety.com/api/recipe/recipes";
+    document.addEventListener("DOMContentLoaded", () => {
+        const recipeList = document.getElementById("recipeList");
+        const apiUrl = "https://backendrocketmain.stu.nighthawkcodingsociety.com/api/recipe/recipes";
 
-            // Function to create the recipe details page
-            function createRecipeDetailsPage(recipe) {
-                // Redirect to the recipe details page when the button is clicked
-                window.location.href = `https://deeskili.github.io/RocketSimFrontend/c4.1/2023/10/21/recipedetails.html?recipeId=${recipe.id}`;
-            }
-            // Function to find a matching image filename based on the recipe title
-            function findMatchingImageFilename(recipeTitle) {
-                const title = recipeTitle.toLowerCase();
-                if (titleToImageMapping.hasOwnProperty(title)) {
-                    return `images/Food%20Images/Food%20Images/${titleToImageMapping[title]}`;
+        // Add event listener for the search button
+        const searchButton = document.getElementById("searchButton");
+        searchButton.addEventListener("click", performSearch);
+
+        // Function to create the recipe details page
+        function createRecipeDetailsPage(recipe) {
+            // Redirect to the recipe details page when the button is clicked
+            window.location.href = `https://deeskili.github.io/RocketSimFrontend/c4.1/2023/10/21/recipedetails.html?recipeId=${recipe.id}`;
+        }
+
+        // Fetch data from the API for all recipes
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok: ${response.status}`);
                 }
-                return "default.jpg";
-            }
-            // Fetch data from the API for all recipes
-            fetch(apiUrl)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Network response was not ok: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    // Generate recipe cards for each recipe
-                    data.forEach(recipe => {
-                        const recipeCard = document.createElement("div");
-                        recipeCard.classList.add("recipe-card");
+                return response.json();
+            })
+            .then(data => {
+                // Store the data in a variable for filtering
+                let recipesData = data;
 
-                        // Display image (you may need to adjust this)
-                        function findMatchingImageFilename(title) {
-                            // Your implementation to find the image filename based on the recipe title
-                            // Replace this with your actual logic
-                            return 'path/to/your/image/' + title + '.jpg';
-                         }
+                // Generate recipe cards for each recipe
+                data.forEach(recipe => {
+                    const recipeCard = createRecipeCard(recipe);
+                    recipeList.appendChild(recipeCard);
+                });
 
-                        // Function to create and append the image to the recipe card
-                        function displayRecipeImage(recipeCard, recipe) {
-                            const imgElement = document.createElement("img");
-                            imgElement.src = findMatchingImageFilename(recipe.title);
-                            recipeCard.appendChild(imgElement);
-                        }
+                // Function to create a recipe card
+                function createRecipeCard(recipe) {
+                    const recipeCard = document.createElement("div");
+                    recipeCard.classList.add("recipe-card");
 
-                        // Display recipe title
-                        const titleElement = document.createElement("div");
-                        titleElement.classList.add("recipe-title");
-                        titleElement.textContent = recipe.title;
-                        recipeCard.appendChild(titleElement);
+                    // Display image (you may need to adjust this)
+                    const imgElement = document.createElement("img");
+                    imgElement.src = findMatchingImageFilename(recipe.title);
+                    recipeCard.appendChild(imgElement);
 
-                        // More info button
-                        const moreInfoButton = document.createElement("button");
-                        moreInfoButton.classList.add("more-info-button");
-                        moreInfoButton.textContent = "More Info";
+                    // Display recipe title
+                    const titleElement = document.createElement("div");
+                    titleElement.classList.add("recipe-title");
+                    titleElement.textContent = recipe.title;
+                    recipeCard.appendChild(titleElement);
 
-                        // Add an event listener to the "More Info" button
-                        moreInfoButton.addEventListener("click", () => {
-                            createRecipeDetailsPage(recipe);
-                        });
+                    // More info button
+                    const moreInfoButton = document.createElement("button");
+                    moreInfoButton.classList.add("more-info-button");
+                    moreInfoButton.textContent = "More Info";
 
-                        recipeCard.appendChild(moreInfoButton);
+                    // Add an event listener to the "More Info" button
+                    moreInfoButton.addEventListener("click", () => {
+                        createRecipeDetailsPage(recipe);
+                    });
 
-                        // Append the recipe card to the container
+                    recipeCard.appendChild(moreInfoButton);
+                    return recipeCard;
+                }
+
+                // Function to filter recipes based on search input
+                function performSearch() {
+                    const searchInput = document.getElementById("searchInput").value.toLowerCase();
+                    const filteredRecipes = recipesData.filter(recipe => recipe.title.toLowerCase().includes(searchInput));
+
+                    // Clear the recipe list
+                    recipeList.innerHTML = "";
+
+                    // Generate recipe cards for filtered recipes
+                    filteredRecipes.forEach(recipe => {
+                        const recipeCard = createRecipeCard(recipe);
                         recipeList.appendChild(recipeCard);
                     });
-                })
-                .catch(error => {
-                    console.error("There was a problem fetching the data:", error);
-                });
-        });
-
-        // Mapping object for recipe titles to image filenames
-        const titleToImageMapping = {
-            "Miso-Butter Roast Chicken With Acorn Squash Panzanella": "miso-butter-roast-chicken-acorn-squash-panzanella.jpg",
-            // Add more mappings as needed
-        };
-    </script>
+                }
+            })
+            .catch(error => {
+                console.error("There was a problem fetching the data:", error);
+            });
+    });
+</script>
 </body>
 </html>
