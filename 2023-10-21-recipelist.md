@@ -62,6 +62,32 @@ categories: ['C4.1']
         .more-info-button:hover {
             background-color: #45a049;
         }
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+        #searchInput {
+            padding: 10px;
+            width: 300px; /* Adjust the width as needed */
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #searchButton {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+        #searchButton:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
