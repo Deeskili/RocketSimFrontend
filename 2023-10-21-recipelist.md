@@ -11,6 +11,10 @@ categories: ['C4.1']
 <html>
 <head>
     <title>Recipe List</title>
+    <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search for recipes here">
+    <button id="searchButton">Search</button>
+</div>
     <style>
         body {
             font-family: Arial, sans-serif;
