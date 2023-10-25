@@ -18,7 +18,9 @@ categories: ['C4.1']
     <h2>Ingredients</h2>
     <ul id="recipe-ingredients"></ul>
     <h2>Instructions</h2>
-    <ol id="recipe-instructions"></ol>
+    <ol id="recipe-instructions"></ol> // pre formatted data as to how i want each of them to be presented
+    // instructions as an orderd list 1, 2, 3 etc
+    // ingrediants as an unordered list, bullets points
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -27,22 +29,25 @@ categories: ['C4.1']
             const recipeId = urlParams.get("recipeId");
 
             // Fetch the recipe details based on the recipeId from the API
-            fetch(`https://backendrocketmain.stu.nighthawkcodingsociety.com/api/recipe/recipedetails?id=${recipeId}`)
+            fetch(`https://backendrocketmain.stu.nighthawkcodingsociety.com/api/recipe/recipedetails?id=${recipeId}`) // this is the second API that we used. its the same API but this time al lthe recipes are organized in relavance to theri id, id 1 being the 1st recipe and id 2 being the 2nd and so on....
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error(`Network response was not ok: ${response.status}`);
+                        throw new Error(`Network response was not ok: ${response.status}`); // again a 404 error statement for curropted data
                     }
                     return response.json();
                 })
                 .then(recipe => {
                     // Display recipe details on the page
-                    const titleElement = document.getElementById("recipe-title");
-                    const ingredientsElement = document.getElementById("recipe-ingredients");
-                    const instructionsElement = document.getElementById("recipe-instructions");
+                    const titleElement = document.getElementById("recipe-title"); // element by id here is the title that is being extracted/ fetched
+                    const ingredientsElement = document.getElementById("recipe-ingredients"); // element by is here is teh inredients that is being fethched
+                    const instructionsElement = document.getElementById("recipe-instructions"); // element by id here is teh instructions that is being fetched
+                    // "recipe-intrcutions" etc is how its formatted in the original database and thus makes it easy for the code to extrract and format data
 
                     titleElement.textContent = recipe.title;
 
-                    // Split ingredients by commas and create a bulleted list
+                    // The code below formats the data received from the database, the ingredients to be more specific and splits or line breaks to happen after very comma "," which then goes back up to the unorder list to be outputed out as a result
+                    // This make for easier reading as when the data is originally extracted from the database it is usually in a full paragraph which is then formatted into the way we want it to be
+                    // JSON files are like clay which can be formtatted using HTML and CSS anyway we'd like it to be displayed on our final site
                     const ingredients = recipe.cleaned_ingredients.split(',');
                     ingredients.forEach(ingredient => {
                         if (ingredient.trim() !== '') {
@@ -52,11 +57,11 @@ categories: ['C4.1']
                         }
                     });
 
-                    // Split instructions by periods and create a numbered list
+                    // Just as the previous code for the ingrediants, each of the instructions are split by line through periods ".". From each period a new line is broken and with the preformatted HTML, the instructions are ordered in a list based on the line breaks
                     const instructions = recipe.instructions.split('.');
                     instructions.forEach(instruction => {
                         if (instruction.trim() !== '') {
-                            const listItem = document.createElement("li");
+                            const listItem = document.createElement("li"); // goes up to the html code written above "li"
                             listItem.textContent = instruction.trim();
                             instructionsElement.appendChild(listItem);
                         }
@@ -64,7 +69,7 @@ categories: ['C4.1']
                 })
                 .catch(error => {
                     console.error("There was a problem fetching the recipe details:", error);
-                });
+                }); // error message 
         });
     </script>
 </body>
