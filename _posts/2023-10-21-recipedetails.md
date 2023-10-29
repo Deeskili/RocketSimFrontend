@@ -18,9 +18,7 @@ categories: ['C4.1']
     <h2>Ingredients</h2>
     <ul id="recipe-ingredients"></ul>
     <h2>Instructions</h2>
-    <ol id="recipe-instructions"></ol> // pre formatted data as to how i want each of them to be presented
-    // instructions as an orderd list 1, 2, 3 etc
-    // ingrediants as an unordered list, bullets points
+    <ol id="recipe-instructions"></ol> 
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
