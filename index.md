@@ -85,39 +85,39 @@ layout: base
     </div>
     <div class="bgimg-2">
         <div class="caption">
-            <span class="border">Create Recipes!</span>
+            <span class="border">Over 4000 Recipes!!</span>
         </div>
     </div>
     <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
-        <h3>Create recipes!</h3>
-        <p>Create new recipes for you to store and access anytime in the future</p>
+        <h3>Over 4000 Recipe!!</h3>
+        <p>Our recipe book contains over 4000 recipe from which you can choose!</p>
     </div>
     <div class="bgimg-3">
         <div class="caption">
-            <span class="border">Edit Recipes!</span>
+            <span class="border">Search Recipes!</span>
         </div>
     </div>
     <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
-        <h3>Edit Recipes!</h3>
-        <p>Had a late night thought? Edit your recipes anytime you want!!</p>
+        <h3>Search Recipes!</h3>
+        <p>Our unique search bar allows you to search across the wide array of recipes to find that one you savour.</p>
     </div>
     <div class="bgimg-4">
         <div class="caption">
-            <span class="border">View Recipes!</span>
+            <span class="border">Try New Recipes!</span>
         </div>
     </div>
     <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
-        <h3>View Recipes!</h3>
-        <p>Have a bad memory? No worries, you can always access them anytime your want to!!</p>
+        <h3>Try New Recipes!</h3>
+        <p>In a creative frenzy? No worries, our recipe manager can help you find something new to try our everyday!</p>
     </div>
     <div class="bgimg-5">
         <div class="caption">
-            <span class="border">Delete Recipes!</span>
+            <span class="border">Ingredients and Steps</span>
         </div>
     </div>
     <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
-        <h3>Delete Recipes!</h3>
-        <p>Recipes the remind you of a bad memory? Delete them straight away!!</p>
+        <h3>Ingredients and Steps</h3>
+        <p>In serach of Grandma's famour pie? No worrite our recipe manage contains step by step instructions and well as ingredients lists for every recipe you search!</p>
     </div>
 </body>
 </html>
