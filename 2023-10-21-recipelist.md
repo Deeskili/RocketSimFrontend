@@ -4,7 +4,7 @@ layout: notebook
 title: Recipe Search
 description: 
 type: hacks
-courses: {'compsci': {'week': 1}}
+courses: {'compsci': {'week': 2}}
 categories: ['C4.1']
 ---
 

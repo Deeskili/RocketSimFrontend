@@ -3,7 +3,7 @@ comments: True
 layout: notebook
 title: Edited Recipe Storage Test 
 description: 
-type: hacks
+type: tangibles 
 courses: {'compsci': {'week': 1}}
 categories: ['C4.1']
 ---

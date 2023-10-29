@@ -3,8 +3,8 @@ comments: True
 layout: notebook
 title: Search Bar JS Code+ Test Fetching Data
 description: 
-type: hacks
-courses: {'compsci': {'week': 1}}
+type: tangibles
+courses: {'compsci': {'week': 2}}
 categories: ['C4.1']
 ---
 
