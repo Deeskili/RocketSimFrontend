@@ -93,3 +93,10 @@ We hoped the code would work this way:
    - 2023-10-21-recipelist.md
    - 2023-10-21-recipedetails.md
 
+
+<h3> Project Links</h3>
+[Backend Repo](https://github.com/SGTech08/backendrocketmain)
+[Frontend Repo](https://github.com/Deeskili/RocketSimFrontend)
+[API URL - All recipes](https://backendrocketmain.stu.nighthawkcodingsociety.com/api/recipe/recipes)
+[API URL - Induvidual ID](https://backendrocketmain.stu.nighthawkcodingsociety.com/api/recipe/recipedetails?id=1)
+[Published Site-Frontend](https://deeskili.github.io/RocketSimFrontend/)

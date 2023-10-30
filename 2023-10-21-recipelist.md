@@ -10,7 +10,7 @@ categories: ['C4.1']
 
 <html>
 <head>
-    <title>Recipe List</title>
+    <title>Recipe List: Search Over 4000 Recipes!</title>
     <style>
         body {
             font-family: Arial, sans-serif;
