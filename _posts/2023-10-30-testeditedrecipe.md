@@ -14,7 +14,7 @@ categories: ['C4.1']
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Manager</title>
-            <style>
+    <style>
         /* Reset some default styles for consistency */
         * {
             margin: 0;
