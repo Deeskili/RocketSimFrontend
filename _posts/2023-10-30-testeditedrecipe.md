@@ -1,8 +1,8 @@
 ---
 comments: True
 layout: post
-title: Editedapitest SQLITE
-description: Please work!!!
+title: Add, View or Delete Recipes
+description: Our unique database allows you to add, delete and also view your own recipes!
 type: Tangibles
 courses: {'compsci': {'week': 3}}
 categories: ['C4.1']
@@ -15,19 +15,127 @@ categories: ['C4.1']
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Manager</title>
     <style>
-        #recipe-form, #delete-recipe {
-            margin-bottom: 20px;
-        }
-
-        input[type="text"], textarea {
-            width: 100%;
-            margin-bottom: 10px;
-        }
-
-        button {
-            padding: 5px 15px;
-            font-size: 16px;
-        }
+        /* Reset some default styles for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+/* Header Styles */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 24px;
+}
+/* Recipe Form Styles */
+#recipe-form {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+}
+#recipe-form h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #555;
+}
+/* View Recipes Button Styles */
+button#view-recipes {
+    background-color: #4285f4;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+button#view-recipes:hover {
+    background-color: #2b4b91;
+}
+/* Recipe List Styles */
+#recipe-list {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+}
+#recipe-list div {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+#recipe-list h3 {
+    color: #333;
+    font-size: 20px;
+}
+/* Delete Recipe Styles */
+#delete-recipe {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+}
+#delete-recipe h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+#delete-id {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+/* Unique Styles */
+h2 {
+    background-color: #4285f4;
+    color: #fff;
+    padding: 10px 0;
+    font-size: 22px;
+    border-radius: 5px 5px 0 0;
+}
+p {
+    font-size: 16px;
+    line-height: 1.4;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    #recipe-form, #recipe-list, #delete-recipe {
+        margin: 10px;
+        padding: 10px;
+    }
+}
     </style>
 </head>
 <body>
