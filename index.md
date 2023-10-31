@@ -119,6 +119,7 @@ layout: base
         <div class="caption">
             <span class="border">Input Recipe/Delete Recipe</span>
         </div>
+    </a> 
     </div>
     <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
         <h3>Add Your Own Recipe!</h3>
