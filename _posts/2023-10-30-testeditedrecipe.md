@@ -14,7 +14,7 @@ categories: ['C4.1']
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Manager</title>
-        <style>
+            <style>
         /* Reset some default styles for consistency */
         * {
             margin: 0;
@@ -23,8 +23,8 @@ categories: ['C4.1']
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f2f2f2;
+            font-family: 'Lato', sans-serif;
+            background-color: #f7f7f7;
             margin: 0;
             padding: 0;
         }
@@ -46,7 +46,7 @@ categories: ['C4.1']
             padding: 20px;
             margin: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         #recipe-form h2 {
@@ -61,7 +61,7 @@ categories: ['C4.1']
             margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             font-size: 16px;
         }
 
@@ -74,7 +74,7 @@ categories: ['C4.1']
         }
 
         button {
-            background-color: #355070;
+            background-color: #6497b1;
             color: #fff;
             padding: 12px 25px;
             border: none;
@@ -85,12 +85,12 @@ categories: ['C4.1']
         }
 
         button:hover {
-            background-color: #6497b1;
+            background-color: #355070;
         }
 
         /* View Recipes Button Styles */
         button#view-recipes {
-            background-color: #6497b1;
+            background-color: #355070;
             color: #fff;
             padding: 12px 25px;
             border: none;
@@ -101,7 +101,7 @@ categories: ['C4.1']
         }
 
         button#view-recipes:hover {
-            background-color: #355070;
+            background-color: #6497b1;
         }
 
         /* Recipe List Styles */
@@ -111,7 +111,7 @@ categories: ['C4.1']
             padding: 20px;
             margin: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         #recipe-list div {
@@ -133,7 +133,7 @@ categories: ['C4.1']
             padding: 20px;
             margin: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         #delete-recipe h2 {
@@ -147,7 +147,7 @@ categories: ['C4.1']
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             font-size: 16px;
         }
 
