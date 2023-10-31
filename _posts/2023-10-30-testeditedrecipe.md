@@ -2,8 +2,8 @@
 comments: True
 layout: post
 title: Editedapitest SQLITE
-description: 
-type: plans
+description: Please work!!!
+type: Tangibles
 courses: {'compsci': {'week': 3}}
 categories: ['C4.1']
 ---
@@ -15,40 +15,43 @@ categories: ['C4.1']
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Manager</title>
     <style>
-        /* Add some basic styling */
-        .container {
-            max-width: 600px;
-            margin: auto;
+        #recipe-form, #delete-recipe {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 5px 15px;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Recipe Manager</h1>
+    <div id="recipe-form">
+        <h2>Add Recipe</h2>
+        <input type="text" id="title" placeholder="Title">
+        <textarea id="ingredients" placeholder="Ingredients"></textarea>
+        <textarea id="instructions" placeholder="Instructions"></textarea>
+        <button onclick="addRecipe()">Submit</button>
+    </div>
 
-        <!-- Form to Add a Recipe -->
-        <form id="addRecipeForm">
-            <h2>Add a Recipe</h2>
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title" required>
-            <label for="ingredients">Ingredients:</label>
-            <textarea id="ingredients" name="ingredients" required></textarea>
-            <label for="instructions">Instructions:</label>
-            <textarea id="instructions" name="instructions"></textarea>
-            <button type="submit">Add Recipe</button>
-        </form>
+    <button onclick="viewRecipes()">View Recipes</button>
 
-        <!-- Display Recipes -->
-        <div id="recipes">
-            <h2>Recipes</h2>
-        </div>
+    <div id="recipe-list"></div>
+
+    <div id="delete-recipe">
+        <h2>Delete Recipe</h2>
+        <input type="text" id="delete-id" placeholder="Recipe ID">
+        <button onclick="deleteRecipe()">Delete</button>
     </div>
 
     <script>
-        document.getElementById('addRecipeForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
+        function addRecipe() {
             const title = document.getElementById('title').value;
             const ingredients = document.getElementById('ingredients').value;
             const instructions = document.getElementById('instructions').value;
@@ -56,67 +59,39 @@ categories: ['C4.1']
             fetch('http://127.0.0.1:5000/recipes', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     title,
                     ingredients,
-                    instructions,
-                }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                loadRecipes();
-            })
-            .catch((error) => {
-                console.error('Error:', error);
+                    instructions
+                })
             });
-        });
+        }
 
-        function loadRecipes() {
+        function viewRecipes() {
             fetch('http://127.0.0.1:5000/recipes')
                 .then(response => response.json())
                 .then(data => {
-                    displayRecipes(data);
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
+                    const list = document.getElementById('recipe-list');
+                    list.innerHTML = "";
+                    data.forEach(recipe => {
+                        list.innerHTML += `<div>
+                            <h3>${recipe.title} (ID: ${recipe.id})</h3>
+                            <p>${recipe.ingredients}</p>
+                            <p>${recipe.instructions}</p>
+                        </div>`;
+                    });
                 });
         }
 
-        function displayRecipes(recipes) {
-            const recipesContainer = document.getElementById('recipes');
-            recipesContainer.innerHTML = '<h2>Recipes</h2>'; // Reset
+        function deleteRecipe() {
+            const id = document.getElementById('delete-id').value;
 
-            recipes.forEach(recipe => {
-                const div = document.createElement('div');
-                div.innerHTML = `
-                    <h3>${recipe.title}</h3>
-                    <p>Ingredients: ${recipe.ingredients}</p>
-                    <p>Instructions: ${recipe.instructions}</p>
-                    <button onclick="deleteRecipe(${recipe.id})">Delete</button>
-                `;
-                recipesContainer.appendChild(div);
-            });
-        }
-
-        function deleteRecipe(id) {
             fetch(`http://127.0.0.1:5000/recipes/${id}`, {
-                method: 'DELETE',
-            })
-            .then(response => {
-                if (response.status === 204) {
-                    loadRecipes();
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+                method: 'DELETE'
+            }).then(() => viewRecipes());
         }
-
-        // Load recipes when the page loads
-        loadRecipes();
     </script>
 
 </body>
