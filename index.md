@@ -93,31 +93,36 @@ layout: base
         <p>Our recipe book contains over 4000 recipe from which you can choose!</p>
     </div>
     <div class="bgimg-3">
+    <a href="https://deeskili.github.io/RocketSimFrontend/2023-10-21-recipelist.html" style="text-decoration: none; display: block;">
         <div class="caption">
             <span class="border">Search Recipes!</span>
         </div>
+    </a>
     </div>
     <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
         <h3>Search Recipes!</h3>
         <p>Our unique search bar allows you to search across the wide array of recipes to find that one you savour.</p>
     </div>
     <div class="bgimg-4">
+    <a href="https://deeskili.github.io/RocketSimFrontend/2023-10-21-recipelist.html" style="text-decoration: none; display: block;">
         <div class="caption">
             <span class="border">Try New Recipes!</span>
         </div>
+    </a>
     </div>
     <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
         <h3>Try New Recipes!</h3>
         <p>In a creative frenzy? No worries, our recipe manager can help you find something new to try our everyday!</p>
     </div>
     <div class="bgimg-5">
+    <a href="https://deeskili.github.io/RocketSimFrontend/c4.1/2023/10/30/testeditedrecipe.html">
         <div class="caption">
-            <span class="border">Ingredients and Steps</span>
+            <span class="border">Input Recipe/Delete Recipe</span>
         </div>
     </div>
     <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
-        <h3>Ingredients and Steps</h3>
-        <p>In serach of Grandma's famour pie? No worrite our recipe manage contains step by step instructions and well as ingredients lists for every recipe you search!</p>
+        <h3>Add Your Own Recipe!</h3>
+        <p>Add, Search, or Delete recipes from our own database!</p>
     </div>
 </body>
 </html>
