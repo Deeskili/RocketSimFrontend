@@ -38,11 +38,11 @@ categories: ['C4.1']
     }
 
     h2 {
-        background-color: #fff;
-        color: #000;
+        background-color: #6497b1;
+        color: #fff;
         font-size: 24px;
         padding: 10px;
-        border-radius: 0;
+        border-radius: 10px 10px 0 0;
         margin-top: 0;
     }
 
@@ -59,6 +59,7 @@ categories: ['C4.1']
         margin-bottom: 5px;
     }
 </style>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
