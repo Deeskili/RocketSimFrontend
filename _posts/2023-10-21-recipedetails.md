@@ -20,6 +20,46 @@ categories: ['C4.1']
     <h2>Instructions</h2>
     <ol id="recipe-instructions"></ol> 
 
+    <style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        background-color: #355070;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        font-size: 28px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    h2 {
+        background-color: #fff;
+        color: #000;
+        font-size: 24px;
+        padding: 10px;
+        border-radius: 0;
+        margin-top: 0;
+    }
+
+    ul, ol {
+        background-color: #fff;
+        color: #000;
+        padding: 10px;
+        border-radius: 0 0 10px 10px;
+    }
+
+    li {
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+</style>
+
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             // Get the recipeId from the URL
