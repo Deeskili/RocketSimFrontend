@@ -14,168 +14,168 @@ categories: ['C4.1']
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Manager</title>
-
-    <style>
-        /* Reset some default styles for consistency */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: #f7f7f7;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Header Styles */
-        header {
-            background-color: #355070;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            font-size: 28px;
-            letter-spacing: 2px;
-        }
-
-        /* Recipe Form Styles */
-        #recipe-form {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 20px;
-            margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        #recipe-form h2 {
-            color: #355070;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        input[type="text"], textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 16px;
-        }
-
-        input[type="text"] {
-            background-color: #f5f5f5;
-        }
-
-        textarea {
-            background-color: #f8f8f8;
-        }
-
-        button {
-            background-color: #6497b1;
-            color: #fff;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #355070;
-        }
-
-        /* View Recipes Button Styles */
-        button#view-recipes {
-            background-color: #355070;
-            color: #fff;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button#view-recipes:hover {
-            background-color: #6497b1;
-        }
-
-        /* Recipe List Styles */
-        #recipe-list {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 20px;
-            margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        #recipe-list div {
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        #recipe-list h3 {
-            color: #355070;
-            font-size: 24px;
-        }
-
-        /* Delete Recipe Styles */
-        #delete-recipe {
-            background-color: #fff;
-            border: 1px solid #ccc;
-            padding: 20px;
-            margin: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        #delete-recipe h2 {
-            color: #355070;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        #delete-id {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 16px;
-        }
-
-        /* Unique Styles */
-        h2 {
-            background-color: #6497b1;
-            color: #fff;
-            padding: 15px 0;
-            font-size: 32px;
-            border-radius: 10px 10px 0 0;
-            text-align: center;
-        }
-
-        p {
-            font-size: 18px;
-            line-height: 1.5;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            #recipe-form, #recipe-list, #delete-recipe {
-                margin: 10px;
-                padding: 10px;
-            }
-        }
-    </style>
     
+    <style>
+    /* Reset some default styles for consistency */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Header Styles */
+    header {
+        background-color: #355070;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+
+    /* Recipe Form Styles */
+    #recipe-form {
+        background-color: #fff;
+        border: 1px solid #6497b1;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #recipe-form h2 {
+        color: #355070;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    input[type="text"], textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+    }
+
+    input[type="text"] {
+        background-color: #f5f5f5;
+    }
+
+    textarea {
+        background-color: #f8f8f8;
+    }
+
+    button {
+        background-color: #6497b1;
+        color: #fff;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #355070;
+    }
+
+    /* View Recipes Button Styles */
+    button#view-recipes {
+        background-color: #355070;
+        color: #fff;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button#view-recipes:hover {
+        background-color: #6497b1;
+    }
+
+    /* Recipe List Styles */
+    #recipe-list {
+        background-color: #fff;
+        border: 1px solid #6497b1;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #recipe-list div {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    #recipe-list h3 {
+        color: #355070;
+        font-size: 24px;
+    }
+
+    /* Delete Recipe Styles */
+    #delete-recipe {
+        background-color: #fff;
+        border: 1px solid #6497b1;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #delete-recipe h2 {
+        color: #355070;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    #delete-id {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+    }
+
+    /* Unique Styles */
+    h2 {
+        background-color: #6497b1;
+        color: #fff;
+        padding: 15px 0;
+        font-size: 32px;
+        border-radius: 10px 10px 0 0;
+        text-align: center;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        #recipe-form, #recipe-list, #delete-recipe {
+            margin: 10px;
+            padding: 10px;
+        }
+    }
+</style>
+
 </head>
 <body>
 
