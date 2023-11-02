@@ -60,8 +60,6 @@ categories: ['C4.1']
     }
 </style>
 
-
-
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             // Get the recipeId from the URL
