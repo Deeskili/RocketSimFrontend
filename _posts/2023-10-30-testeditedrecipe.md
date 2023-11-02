@@ -115,9 +115,17 @@ categories: ['C4.1']
     }
 
     #recipe-list h3 {
-        color: #000000;
-        font-size: 24px;
-    }
+    color: #000; /* Updated to black */
+    font-size: 24px;
+}
+
+ul, ol {
+    background-color: #fff; /* Set background color to white */
+    color: #000; /* Set text color to black */
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+}
+
 
     /* Delete Recipe Styles */
     #delete-recipe {
