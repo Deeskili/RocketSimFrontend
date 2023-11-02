@@ -83,19 +83,21 @@ categories: ['C4.1']
 
     /* View Recipes Button Styles */
     button#view-recipes {
-        background-color: #355070;
-        color: #fff;
-        padding: 12px 25px;
-        border: none;
-        border-radius: 10px;
-        font-size: 18px;
-        cursor: pointer;
-        transition: background-color 0.3s;
+    background-color: #355070;
+    color: #000; /* Updated to black */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
     }
 
     button#view-recipes:hover {
-        background-color: #6497b1;
+    background-color: #6497b1;
+    color: #000; /* Updated to black */
     }
+
 
     /* Recipe List Styles */
     #recipe-list {
@@ -117,13 +119,6 @@ categories: ['C4.1']
     #recipe-list h3 {
     color: #000; /* Updated to black */
     font-size: 24px;
-}
-
-ul, ol {
-    background-color: #fff; /* Set background color to white */
-    color: #000; /* Set text color to black */
-    padding: 10px;
-    border-radius: 0 0 10px 10px;
 }
 
 
