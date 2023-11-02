@@ -15,6 +15,7 @@ categories: ['C4.1']
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Manager</title>
     
+</head>
     <style>
     /* Reset some default styles for consistency */
     * {
@@ -176,7 +177,7 @@ categories: ['C4.1']
     }
 </style>
 
-</head>
+
 <body>
 
     <div id="recipe-form">
