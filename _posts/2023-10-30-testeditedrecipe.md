@@ -115,7 +115,7 @@ categories: ['C4.1']
     }
 
     #recipe-list h3 {
-        color: #355070;
+        color: #000000;
         font-size: 24px;
     }
 
