@@ -14,8 +14,9 @@ categories: ['C4.1']
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Manager</title>
-    
+
 </head>
+
     <style>
     /* Reset some default styles for consistency */
     * {
@@ -30,17 +31,7 @@ categories: ['C4.1']
         margin: 0;
         padding: 0;
     }
-
-    /* Header Styles */
-    header {
-        background-color: #355070;
-        color: #fff;
-        text-align: center;
-        padding: 20px 0;
-        font-size: 28px;
-        letter-spacing: 2px;
-    }
-
+   
     /* Recipe Form Styles */
     #recipe-form {
         background-color: #fff;
