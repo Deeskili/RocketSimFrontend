@@ -38,7 +38,7 @@ categories: ['C4.1']
     }
 
     h2 {
-        background-color: #000;
+        background-color: #355070;
         color: #fff;
         font-size: 24px;
         padding: 10px;
