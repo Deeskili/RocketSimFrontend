@@ -16,10 +16,6 @@ Our final project is a recipe manager book that extracts details from a backend 
 
 Week 0 started of with us planning you recipe manager site. Our original goal was a rocket simulator but we then switched up to a recipe manager owing to the difficulties of making and running a rocket simulator. Week 0's main goal for the frontend team was planning out and exicuting the frontedn home page, which we first planned out in figma and developed a code based on that. Our goal was to make a parralax effect for scrolling which we felt would be pretty cool to scroll through.
 
-<h3>Link to Fimga Animation</h3>
-
-[Link to Fima Animation](https://www.figma.com/proto/3nvtE8kJLdDL6zx4ho8bp8/Recipe-Book-Manager?node-id=23-30&starting-point-node-id=23%3A30
-)
 
 <h3>Continuation of making the frontend homepage</h3>
 
@@ -51,6 +47,24 @@ In order to use the data we found online otherwise called a database we will hav
 <h3>Function</h3>
 Next we made a function so the frontend can ut a query on the end of the backend url like the id in order to obtain the data they were hoping to get. This was created by using functions. In the function we instructed the program to use the query that was provided and go through the csv until it could find the value that it needed. 
 
+[Function](https://ray.so/#theme=candy&background=true&darkMode=true&padding=64&code=ZGVmIGluaXRSZWNpcGVzKCk6CiAgICB3aXRoIGFwcC5hcHBfY29udGV4dCgpOgogICAgICAgIHByaW50KCJDcmVhdGluZyByZWNpcGUgdGFibGVzIikKICAgICAgICBkYi5jcmVhdGVfYWxsKCkKICAgICAgICBpZiBkYi5zZXNzaW9uLnF1ZXJ5KFJlY2lwZSkuY291bnQoKSA-IDA6CiAgICAgICAgICAgIHJldHVybgoKICAgICAgICBiYXNlZGlyID0gb3MucGF0aC5hYnNwYXRoKG9zLnBhdGguZGlybmFtZShfX2ZpbGVfXykpCiAgICAgICAgZmlsZV9wYXRoID0gb3MucGF0aC5qb2luKGJhc2VkaXIsICIuLi9zdGF0aWMvZGF0YS9yZWNpcGVzLmNzdiIpICAjIENoYW5nZWQgdG8gdXNlIG9zLnBhdGguam9pbiBmb3IgYmV0dGVyIGNvbXBhdGliaWxpdHkKICAgICAgICBkZiA9IHBkLnJlYWRfY3N2KGZpbGVfcGF0aCkKCiAgICAgICAgZm9yIGluZGV4LCByb3cgaW4gZGYuaXRlcnJvd3MoKToKICAgICAgICAgICAgcmVjaXBlID0gUmVjaXBlKAogICAgICAgICAgICAgICAgdGl0bGU9cm93WydUaXRsZSddLAogICAgICAgICAgICAgICAgaW5ncmVkaWVudHM9cm93WydJbmdyZWRpZW50cyddLAogICAgICAgICAgICAgICAgaW5zdHJ1Y3Rpb25zPXJvdy5nZXQoJ0luc3RydWN0aW9ucycsIE5vbmUpLCAgIyBBZGRlZCBhIGdldCBtZXRob2QgdG8gaGFuZGxlIHRoZSBwb3NzaWJpbGl0eSBvZiB0aGUga2V5IG5vdCBleGlzdGluZwogICAgICAgICAgICAgICAgaW1hZ2VfbmFtZT1yb3cuZ2V0KCdJbWFnZV9OYW1lJywgTm9uZSksCiAgICAgICAgICAgICAgICBjbGVhbmVkX2luZ3JlZGllbnRzPXJvdy5nZXQoJ0NsZWFuZWRfSW5ncmVkaWVudHMnLCBOb25lKQogICAgICAgICAgICApCgogICAgICAgICAgICBkYi5zZXNzaW9uLmFkZChyZWNpcGUpCiAgICAgICAgICAgIHRyeToKICAgICAgICAgICAgICAgIGRiLnNlc3Npb24uY29tbWl0KCkKICAgICAgICAgICAgZXhjZXB0IEludGVncml0eUVycm9yOgogICAgICAgICAgICAgICAgZGIuc2Vzc2lvbi5yb2xsYmFjaygpCiAgICAgICAgICAgICAgICBwcmludChmIkR1cGxpY2F0ZSByZWNpcGUgb3IgZXJyb3I6IHtyZWNpcGUudGl0bGV9IikKICAgICAgICAgICAgZXhjZXB0IEV4Y2VwdGlvbiBhcyBlOgogICAgICAgICAgICAgICAgZGIuc2Vzc2lvbi5yb2xsYmFjaygpCiAgICAgICAgICAgICAgICBwcmludChmIkVycm9yIGFkZGluZyByZWNpcGUgYXQgaW5kZXgge2luZGV4fToge3N0cihlKX0iKQ)
+
+<h3>Calling the Function</h3>
+In a different file we imported the function from the file used above. In addition I defined the end of the url for instructions to the program when a certain function should be hit. 
+[Function Calling Image](https://ray.so/#theme=candy&background=true&darkMode=true&padding=64&code=CmFwaSA9IEFwaShyZWNpcGVfYXBpKQpjbGFzcyByZWNpcGVzOgogICAgY2xhc3MgX2dldFJlY2lwZXMoUmVzb3VyY2UpOgogICAgICAgIGRlZiBnZXQoc2VsZik6CiAgICAgICAgICAgIHJlY2lwZXMgPSBkYi5zZXNzaW9uLnF1ZXJ5KFJlY2lwZSkuYWxsKCkKICAgICAgICAgICAgcmV0dXJuIGpzb25pZnkoW3JlY2lwZS5hbGxkZXRhaWxzKCkgZm9yIHJlY2lwZSBpbiByZWNpcGVzXSkKICAgICAgICAKICAgIGNsYXNzIF9nZXRyZWNpcGVkZXRhaWxzKFJlc291cmNlKToKICAgICAgICBkZWYgZ2V0KHNlbGYpOgogICAgICAgICAgICByZWNpcGUgPSBkYi5zZXNzaW9uLnF1ZXJ5KFJlY2lwZSkuZmlsdGVyKFJlY2lwZS5pZCA9PSBpbnQocmVxdWVzdC5hcmdzLmdldCgiaWQiKSkpLmZpcnN0KCkKICAgICAgICAgICAgcmV0dXJuIGpzb25pZnkocmVjaXBlLmFsbGRldGFpbHMoKSkKICAgIAogICAgYXBpLmFkZF9yZXNvdXJjZShfZ2V0UmVjaXBlcywgIi9yZWNpcGVzIikKICAgIGFwaS5hZGRfcmVzb3VyY2UoX2dldHJlY2lwZWRldGFpbHMsICIvcmVjaXBlZGV0YWlscyIp)
+
+
+<h3>Overall</h3>
+Overall the backend was created with many additions ot the backend. We used functions and aws deployment techniques to deploy the backend. I really liked the technical aspect of the backend and I would 100% do it again!
+
+<h3>Github Analytics</h3>
+Over the repositories I have been contributing to I have been constantly commiting to show my contributions. These commits can be seen from my github profile. 
+[Github Analytics](https://github.com/SGTech08)
+
+<h3>Individual Projects</h3>
+One of my individual projects I made during the is my Dominos Monitor. With this monitor it fetches the API of dominos to check stock of a coupon. Then it keeps it in a loop until it finds a coupon that is successful. It allows me to get free pizza :) and who doesn't love free pizza. 
+
+<h3>Trimester One Review</h3>
 
 <h3>Plans for NATM week</h3>
 
