@@ -12,7 +12,7 @@ permalink: /about/
 
 ## Purpose of Our Project
 
-Our project, the Recipe Manager, is designed to simplify the process of recipe management. It offers users a platform to store, discover, delete, and edit recipes effortlessly. We believe that cooking should be an enjoyable experience, and our application aims to make recipe management more convenient and user-friendly.
+Our project, the Recipe Manager, is designed to simplify the process of recipe management. It offers users a platform to store, discover, delete, and edit recipes effortlessly. We believe that cooking should be an enjoyable experience, and our application aims to make recipe management more convenient and us.er-friendly.
 
 With Recipe Manager, you can:
 - Store your favorite recipes.
